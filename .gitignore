@@ -1,0 +1,10 @@
+.vscode/
+venv
+application.py
+viewers.py
+__init__()
+__pycache__/
+apii.py
+config.py
+manage.py
+test.py
