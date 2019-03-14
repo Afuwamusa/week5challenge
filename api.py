@@ -34,12 +34,12 @@ diary = [
 def test():
     return jsonify({'message': 'my diary'})
 
-#a route that returns all names in the list
+#a route that returns all entries in the list
 @app.route('/v1/api/ent', methods = ['GET'])
 def returnAll():
     return jsonify({'entry': diary})
 
-#a route that returns only one name in the list
+#a route that returns only one entries in the list
 @app.route('/v1/api/ent/<string:entry>', methods = ['GET'])
 def returnOne(entry):
     dia = [item for item in diary if item['entry']== entry]
