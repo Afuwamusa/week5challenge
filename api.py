@@ -1,14 +1,14 @@
 #importing objects from the flask module
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request
 
 
-app = Flask (__name__,template_folder = 'tamplates')
+app = Flask (__name__)
 
 #creating a dictionary in a list
 diary = [
          {
            "entry": "Visiting", 
-           "Date": "30/03/2019", 
+           "date": "30/03/2019", 
            "Time": "2:00-8:00pm"
          },
          {
@@ -37,12 +37,12 @@ def test():
 #a route that returns all names in the list
 @app.route('/v1/api/ent', methods = ['GET'])
 def returnAll():
-    return jsonify({'entry': diary}),200
+    return jsonify({'entry': diary})
 
 #a route that returns only one name in the list
 @app.route('/v1/api/ent/<string:entry>', methods = ['GET'])
 def returnOne(entry):
-    dia = [diary for diary in diary if diary['entry']== entry]
+    dia = [item for item in diary if item['entry']== entry]
     return jsonify({'ent':dia[0]})
 
    
